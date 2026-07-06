@@ -253,6 +253,7 @@ footer a{color:var(--lake2)}
         <span><i class="sw" style="background:#2f6f8f"></i>water</span>
         <span><i class="sw" style="background:#c98a2e"></i>City Hall</span>
         <span><i class="sw" style="background:#6b4a34"></i>bureau</span>
+        <span><i class="sw" style="background:#a34868"></i>data center</span>
         <span><i class="sw" style="background:#57b6d6"></i>a sphere</span>
       </span>
       <button class="shiftbtn" id="lmbtn" title="overlay real Buffalo landmarks">◉ real Buffalo</button>
@@ -271,6 +272,27 @@ footer a{color:var(--lake2)}
   <h2 class="sec">The seventeen bureaus</h2>
   <p class="sub">Every department below is one Buffalo actually runs — right down to the municipal liquor store and the little airport. Each staffs a slice of the workforce; the <b>function</b> is the overlay, the <b>department</b> is the real town. Counts are live.</p>
   <div class="bgrid" id="bgrid"></div>
+</section>
+
+<!-- ============ DATA CENTER ============ -->
+<section id="datacenter">
+  <div class="eyebrow">New construction</div>
+  <h2 class="sec">The data center</h2>
+  <p class="sub">Every town this size has one going up at the edge of the industrial park; this is the overlay's own — <b>not one of Buffalo's real seventeen</b>, and it says so. It is the city's rack room: the board below holds only <b>measured</b> compute results. Nothing here is a projection, a target, or a number cited from a paper — a record gets racked when it was <b>run on the founder's own silicon</b>, caps stated, or it doesn't get racked at all.</p>
+  <div class="console">
+    <div class="bar"><span class="dot"></span> DATA CENTER · THE RECORD BOARD <span class="rt">measured, not projected</span></div>
+    <div class="grid4">
+      <div class="cell"><div class="lab">Top record · WT-103 test ppl</div><div class="big tick g">25.02</div><div class="sm">gated three-body fusion</div></div>
+      <div class="cell"><div class="lab">The engine</div><div class="big tick" style="font-size:19px;line-height:1.3">THE FUSION KIT</div><div class="sm">transformer + KN counts + kNN, mixed by the shadow gate</div></div>
+      <div class="cell"><div class="lab">The silicon</div><div class="big tick" style="font-size:19px;line-height:1.3">RTX 4050 Laptop</div><div class="sm">6 GB VRAM · brute-force kNN · no cloud</div></div>
+      <div class="cell"><div class="lab">Posted</div><div class="big tick" style="font-size:19px;line-height:1.3">2026-07-06</div><div class="sm">record № 001 · the first on the board</div></div>
+    </div>
+    <div class="pop">
+      <div class="row"><span>RECORD № 001 · WikiText-103 test perplexity, full 50k vocab, canonical splits — the chain, each link measured</span><span class="tick">282.61 → 52.45 → 26.23 → 25.02</span></div>
+      <div class="note">Kneser-Ney counts alone 282.61 · transformer alone (51M, converged) 52.45 · static triple fusion 26.23 · <b style="color:#f0c06a">+ shadow gate 25.02</b> — the retrieval-reliability gate is the founder's own addition, and its −1.21 over static mixing is the measured piece no paper supplied.</div>
+    </div>
+    <div class="duty">CAPS ON RECORD · datastore 1M of ~40M keys (RAM) · counts 12M of 83M tokens · mix weights grid-searched on the test slice · full run and teardown at <a href="https://davidwise01.github.io/transformer-fusion-kit/" style="color:#f0c06a">the fusion kit ↗</a> · the board holds rank 1 today; new records rack beneath it</div>
+  </div>
 </section>
 
 <!-- ============ THE REAL TOWN — directory ============ -->
@@ -333,6 +355,7 @@ footer a{color:var(--lake2)}
       <h3>The overlay</h3>
       <p>The <b>function</b> assigned to each bureau, the mapping of categories to departments, and the "population" are the overlay — a way to <b>govern a thousand agents by borrowing the shape of a town that already knows how</b>.</p>
       <p><b>Only public data.</b> The population is the public, online spheres and nothing more; no private draft, no account, no person is counted or exposed. The command center shows the <b>shape</b> of the work — never the work itself.</p>
+      <p><b>The data center is new construction.</b> It is the one building on the map with no real-Buffalo counterpart — the overlay's own, flagged as such — and its record board carries only results measured on the founder's hardware, caps stated.</p>
     </div>
   </div>
   <div class="src">
@@ -435,6 +458,8 @@ function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a
 var cv=document.getElementById("city"), ctx=cv.getContext("2d"), tip=document.getElementById("tip");
 var W=cv.width, H=cv.height, night=false, showLM=false, buildings=[], dots=[];
 // a handful of the real, iconic Buffalo anchors — schematic positions on a schematic map
+// the overlay's own data center — schematic spot at the industrial edge (not a real Buffalo building)
+var DC={x:0.905,y:0.645,n:"THE DATA CENTER"};
 var LM=[
  {n:"Walmart", x:0.65, y:0.30},{n:"Menards", x:0.80, y:0.22},{n:"Target", x:0.59, y:0.45},
  {n:"Buffalo Hospital", x:0.50, y:0.21},{n:"Wright County Gov’t", x:0.86, y:0.37},
@@ -519,6 +544,19 @@ function draw(){
     ctx.fillStyle=bd.b.zc; ctx.beginPath(); ctx.arc(bd.x,bd.y-s/2-2,2,0,Math.PI*2); ctx.fill();
     if(night){ ctx.globalAlpha=0.5; ctx.fillStyle=bd.b.zc; ctx.fillRect(bd.x-s/2,bd.y-s/2,s,s); ctx.globalAlpha=1; }
   });
+  // The data center — the overlay's own build at the industrial edge
+  var dx=DC.x*W, dy=DC.y*H, dw=22, dh=15;
+  ctx.fillStyle=night?"#1a2530":"#fbf6ea"; ctx.strokeStyle="#a34868"; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.rect(dx-dw/2,dy-dh/2,dw,dh); ctx.fill(); ctx.stroke();
+  ctx.strokeStyle=night?"#a3486899":"#a3486855"; ctx.lineWidth=1;
+  for(var rl=1;rl<=3;rl++){ var ry2=dy-dh/2+rl*dh/4; ctx.beginPath(); ctx.moveTo(dx-dw/2+3,ry2); ctx.lineTo(dx+dw/2-3,ry2); ctx.stroke(); }
+  // status LED — steady by day, blinking on the night shift
+  ctx.fillStyle=(night&&Math.sin(tnow/400)<0)?"#1a2530":"#7ee0a6";
+  ctx.beginPath(); ctx.arc(dx+dw/2-3.5,dy-dh/2+3.5,1.6,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle=night?"#e08aa8":"#7d3550"; ctx.font="700 10px "+getComputedStyle(document.body).fontFamily;
+  ctx.textAlign="center"; ctx.fillText("DATA CENTER", dx, dy+dh/2+12);
+  ctx.font="600 9px "+getComputedStyle(document.body).fontFamily;
+  ctx.fillText("record 25.02", dx, dy+dh/2+23); ctx.textAlign="left";
   // City Hall
   var hx=buildings.hall.x, hy=buildings.hall.y;
   ctx.fillStyle="#c98a2e"; ctx.strokeStyle=night?"#f0c06a":"#8a5a12"; ctx.lineWidth=2.4;
@@ -553,10 +591,16 @@ cv.addEventListener("mousemove",function(e){
   var r=cv.getBoundingClientRect(), sx=cv.width/r.width, sy=cv.height/r.height;
   var mx=(e.clientX-r.left)*sx, my=(e.clientY-r.top)*sy, hit=null;
   buildings.forEach(function(bd){ if(Math.abs(mx-bd.x)<12 && Math.abs(my-bd.y)<12) hit=bd; });
+  var dchit = Math.abs(mx-DC.x*W)<14 && Math.abs(my-DC.y*H)<12;
   if(hit){
     tip.style.opacity=1;
     tip.style.left=((hit.x/sx))+"px"; tip.style.top=((hit.y/sy))+"px";
     tip.innerHTML="<b>"+esc(hit.b.d)+"</b> · "+nf(counts[hit.i])+" on staff<br>"+esc(hit.b.fn);
+    cv.style.cursor="pointer";
+  } else if(dchit){
+    tip.style.opacity=1;
+    tip.style.left=((DC.x*W/sx))+"px"; tip.style.top=((DC.y*H/sy))+"px";
+    tip.innerHTML="<b>THE DATA CENTER</b> · record № 001<br>gated fusion · WT-103 test ppl 25.02 — measured, not projected";
     cv.style.cursor="pointer";
   } else { tip.style.opacity=0; cv.style.cursor="default"; }
 });
@@ -567,6 +611,9 @@ cv.addEventListener("click",function(e){
   buildings.forEach(function(bd){ if(Math.abs(mx-bd.x)<12 && Math.abs(my-bd.y)<12){
     document.getElementById("bureaus").scrollIntoView({behavior:"smooth"});
   }});
+  if(Math.abs(mx-DC.x*W)<14 && Math.abs(my-DC.y*H)<12){
+    document.getElementById("datacenter").scrollIntoView({behavior:"smooth"});
+  }
 });
 document.getElementById("shift").addEventListener("click",function(){
   night=!night; this.textContent = night?"◑ day shift":"◐ night shift";
