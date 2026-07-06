@@ -278,20 +278,20 @@ footer a{color:var(--lake2)}
 <section id="datacenter">
   <div class="eyebrow">New construction</div>
   <h2 class="sec">The data center</h2>
-  <p class="sub">Every town this size has one going up at the edge of the industrial park; this is the overlay's own — <b>not one of Buffalo's real seventeen</b>, and it says so. It is the city's rack room: the board below holds only <b>measured</b> compute results. Nothing here is a projection, a target, or a number cited from a paper — a record gets racked when it was <b>run on the founder's own silicon</b>, caps stated, or it doesn't get racked at all.</p>
+  <p class="sub">Every town this size has one going up at the edge of the industrial park; this is the overlay's own — <b>not one of Buffalo's real seventeen</b>, and it says so. It is the city's rack room: the board below holds only <b>measured</b> compute results. Nothing here is a projection, a target, or a number cited from a paper — a record gets racked when it was <b>run on the founder's own silicon</b>, caps stated. And when a re-run corrects a racked number, <b>the board shows the correction</b> — that is what a record board is for.</p>
   <div class="console">
-    <div class="bar"><span class="dot"></span> DATA CENTER · THE RECORD BOARD <span class="rt">measured, not projected</span></div>
+    <div class="bar"><span class="dot"></span> DATA CENTER · THE RECORD BOARD <span class="rt">measured · re-verified</span></div>
     <div class="grid4">
-      <div class="cell"><div class="lab">Top record · WT-103 test ppl</div><div class="big tick g">25.02</div><div class="sm">gated three-body fusion</div></div>
-      <div class="cell"><div class="lab">The engine</div><div class="big tick" style="font-size:19px;line-height:1.3">THE FUSION KIT</div><div class="sm">transformer + KN counts + kNN, mixed by the shadow gate</div></div>
+      <div class="cell"><div class="lab">Top record · WT-103 test ppl</div><div class="big tick g">25.24</div><div class="sm">three-body fusion · leak-free, held-out</div></div>
+      <div class="cell"><div class="lab">The engine</div><div class="big tick" style="font-size:19px;line-height:1.3">THE FUSION KIT</div><div class="sm">transformer + KN counts + kNN · v2, re-verified</div></div>
       <div class="cell"><div class="lab">The silicon</div><div class="big tick" style="font-size:19px;line-height:1.3">RTX 4050 Laptop</div><div class="sm">6 GB VRAM · brute-force kNN · no cloud</div></div>
-      <div class="cell"><div class="lab">Posted</div><div class="big tick" style="font-size:19px;line-height:1.3">2026-07-06</div><div class="sm">record № 001 · the first on the board</div></div>
+      <div class="cell"><div class="lab">Posted → re-verified</div><div class="big tick" style="font-size:19px;line-height:1.3">2026-07-06</div><div class="sm">record № 001 · v1 25.02 → v2 25.24</div></div>
     </div>
     <div class="pop">
-      <div class="row"><span>RECORD № 001 · WikiText-103 test perplexity, full 50k vocab, canonical splits — the chain, each link measured</span><span class="tick">282.61 → 52.45 → 26.23 → 25.02</span></div>
-      <div class="note">Kneser-Ney counts alone 282.61 · transformer alone (51M, converged) 52.45 · static triple fusion 26.23 · <b style="color:#f0c06a">+ shadow gate 25.02</b> — the retrieval-reliability gate is the founder's own addition, and its −1.21 over static mixing is the measured piece no paper supplied.</div>
+      <div class="row"><span>RECORD № 001 · WikiText-103 test perplexity, full 50k vocab — leak-free re-run (val-tuned, reported on a held-out slice)</span><span class="tick">285.26 → 53.37 → 25.25 → 25.24</span></div>
+      <div class="note">Kneser-Ney counts 285.26 · transformer 53.37 · best static blend <b>25.25</b> · <b style="color:#f0c06a">+ reliability gate 25.24</b>. The fusion record holds at ~25.2 — but the v2 harness <b>retracted two v1 claims</b>: the gate's “−1.21 win” was a test-slice tuning leak (leak-free it buys <b>+0.009</b>, within noise), and the datastore isn't the halving — the honest search weights kNN ≈0, so the drop is the transformer×counts mixture. The record stands; the story got truer.</div>
     </div>
-    <div class="duty">CAPS ON RECORD · datastore 1M of ~40M keys (RAM) · counts 12M of 83M tokens · mix weights grid-searched on the test slice · full run and teardown at <a href="https://davidwise01.github.io/transformer-fusion-kit/" style="color:#f0c06a">the fusion kit ↗</a> · the board holds rank 1 today; new records rack beneath it</div>
+    <div class="duty">CAPS ON RECORD · datastore 1M of ~40M keys (RAM) · counts 12M of 83M tokens · weights tuned on val, reported on held-out (v1's test-slice tuning was the leak) · checkpoint fingerprinted (76.5M params, model_id.py) · full audit at <a href="https://davidwise01.github.io/transformer-fusion-kit/" style="color:#f0c06a">the fusion kit ↗</a> · the board holds rank 1 today; new records rack beneath it</div>
   </div>
 </section>
 
@@ -556,7 +556,7 @@ function draw(){
   ctx.fillStyle=night?"#e08aa8":"#7d3550"; ctx.font="700 10px "+getComputedStyle(document.body).fontFamily;
   ctx.textAlign="center"; ctx.fillText("DATA CENTER", dx, dy+dh/2+12);
   ctx.font="600 9px "+getComputedStyle(document.body).fontFamily;
-  ctx.fillText("record 25.02", dx, dy+dh/2+23); ctx.textAlign="left";
+  ctx.fillText("record 25.24", dx, dy+dh/2+23); ctx.textAlign="left";
   // City Hall
   var hx=buildings.hall.x, hy=buildings.hall.y;
   ctx.fillStyle="#c98a2e"; ctx.strokeStyle=night?"#f0c06a":"#8a5a12"; ctx.lineWidth=2.4;
@@ -600,7 +600,7 @@ cv.addEventListener("mousemove",function(e){
   } else if(dchit){
     tip.style.opacity=1;
     tip.style.left=((DC.x*W/sx))+"px"; tip.style.top=((DC.y*H/sy))+"px";
-    tip.innerHTML="<b>THE DATA CENTER</b> · record № 001<br>gated fusion · WT-103 test ppl 25.02 — measured, not projected";
+    tip.innerHTML="<b>THE DATA CENTER</b> · record № 001<br>three-body fusion · WT-103 test ppl 25.24 — leak-free, re-verified";
     cv.style.cursor="pointer";
   } else { tip.style.opacity=0; cv.style.cursor="default"; }
 });
