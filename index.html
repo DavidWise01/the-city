@@ -1,0 +1,545 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>THE CITY · a command center for the ROOT0 workforce · seeded on Buffalo, MN</title>
+<meta name="description" content="A command center for the agentic workforce of David Lee Wise / ROOT0 — modeled on the real, public Buffalo, Minnesota (county seat of Wright County) and staffed live by the public, online spheres of the corpus. Only public data.">
+<meta name="author" content="David Lee Wise · TriPod LLC">
+<meta name="theme-color" content="#2f6f8f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="THE CITY · command center for the ROOT0 workforce">
+<meta property="og:description" content="Seeded on the real, public Buffalo, Minnesota. Staffed live by the public online spheres of ROOT0. Only public data.">
+<meta property="og:site_name" content="ROOT0 · Universe David 0">
+<link rel="canonical" href="https://davidwise01.github.io/the-city/">
+<style>
+:root{
+  --grd:#f2ecdd; --pan:#fbf6ea; --pan2:#f6efdd;
+  --ink:#23303a; --ink2:#4a5560; --dim:#7d766a;
+  --lake:#2f6f8f; --lake2:#245a76; --gold:#c98a2e; --bison:#6b4a34; --sky:#bcd6e2;
+  --line:#ddceb0; --line2:#e9dfc6;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --mono:ui-monospace,"SFMono-Regular","Cascadia Code","Consolas",monospace;
+  --shadow:0 1px 0 #fff8, 0 14px 34px -22px #23303a55;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--grd); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    linear-gradient(#0000 0 0),
+    repeating-linear-gradient(0deg,#0000 0 27px,#23303a08 27px 28px),
+    repeating-linear-gradient(90deg,#0000 0 27px,#23303a08 27px 28px);
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+a{color:var(--lake2);text-underline-offset:2px;text-decoration-thickness:.5px}
+h1,h2,h3{line-height:1.12;font-weight:600;letter-spacing:.2px}
+.mono{font-family:var(--mono)}
+.tick{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ===== MASTHEAD ===== */
+header.top{padding:38px 0 22px;position:relative;overflow:hidden}
+.sealrow{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.seal{width:132px;height:132px;flex:none;filter:drop-shadow(0 8px 20px -10px #23303a66)}
+.mh h1{font-size:clamp(34px,7vw,60px);margin:.05em 0 .06em;letter-spacing:.5px}
+.mh h1 .z{font-family:var(--mono);font-weight:600}
+.kick{font-family:var(--mono);font-size:12.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--lake2)}
+.mh .lede{font-size:18px;color:var(--ink2);max-width:60ch;margin:.5em 0 0}
+.mh .lede b{color:var(--ink);font-weight:600}
+
+/* ===== FACT STRIP ===== */
+.facts{margin:22px 0 6px;border:1px solid var(--line);border-radius:12px;background:
+  linear-gradient(180deg,var(--pan),var(--pan2));box-shadow:var(--shadow);overflow:hidden}
+.facts .fb{display:flex;flex-wrap:wrap;gap:0}
+.facts .f{flex:1 1 150px;padding:12px 16px;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.facts .f .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.facts .f .v{font-size:19px;font-weight:600;margin-top:2px}
+.facts .cap{padding:8px 16px;font-family:var(--mono);font-size:11px;color:var(--dim);background:#fff6}
+
+/* ===== SECTIONS ===== */
+section{padding:34px 0 6px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+h2.sec{font-size:clamp(23px,4vw,32px);margin:.15em 0 .2em}
+.sub{color:var(--ink2);max-width:66ch;margin:0 0 18px}
+
+/* ===== COMMAND CONSOLE ===== */
+.console{border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
+  background:linear-gradient(180deg,#0e2530,#123542);color:#e9f2f4}
+.console .bar{display:flex;align-items:center;gap:10px;padding:9px 14px;background:#0a1c25;border-bottom:1px solid #2b4d5b;font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:#a9cdd7}
+.console .bar .dot{width:9px;height:9px;border-radius:50%;background:#7ee0a6;box-shadow:0 0 8px #7ee0a6}
+.console .bar .rt{margin-left:auto;color:#7fb8c9}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#2b4d5b}
+.cell{background:linear-gradient(180deg,#123946,#0f303b);padding:16px 16px 14px}
+.cell .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#78b2c4}
+.cell .big{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:34px;font-weight:600;line-height:1;margin-top:7px;color:#fff}
+.cell .big.g{color:#f0c06a}
+.cell .sm{font-family:var(--mono);font-size:11.5px;color:#8fc0cf;margin-top:6px}
+.pop{padding:16px;border-top:1px solid #2b4d5b;background:#0e2c37}
+.pop .row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:#a9cdd7}
+.track{height:14px;border-radius:8px;background:#0a2029;border:1px solid #2b4d5b;margin:9px 0 4px;overflow:hidden;position:relative}
+.fill{height:100%;width:0;background:linear-gradient(90deg,#2f6f8f,#57b6d6 70%,#f0c06a);border-radius:8px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.pop .note{font-family:var(--mono);font-size:11px;color:#79a9b8;margin-top:8px}
+.duty{padding:12px 16px;border-top:1px solid #2b4d5b;font-family:var(--mono);font-size:11.5px;color:#9fc7d3;background:#0b2731}
+.duty b{color:#f0c06a;font-weight:600}
+
+/* ===== MAP ===== */
+.mapwrap{border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--pan)}
+.maptop{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line2);font-family:var(--mono);font-size:12px;color:var(--ink2);flex-wrap:wrap}
+.maptop .t{font-weight:600;color:var(--ink);letter-spacing:.04em}
+.maptop .leg{display:flex;gap:14px;margin-left:auto;flex-wrap:wrap}
+.maptop .leg span{display:inline-flex;align-items:center;gap:5px}
+.sw{width:10px;height:10px;border-radius:2px;display:inline-block}
+.shiftbtn{font-family:var(--mono);font-size:11px;border:1px solid var(--line);background:#fff8;color:var(--ink2);border-radius:7px;padding:4px 9px;cursor:pointer}
+.shiftbtn:hover{border-color:var(--lake);color:var(--lake2)}
+#cvwrap{position:relative}
+canvas#city{display:block;width:100%;height:auto;background:
+  radial-gradient(120% 80% at 50% -10%,#fbf6ea,#efe6cf)}
+#tip{position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-118%);
+  background:#0e2530;color:#eaf3f5;font-family:var(--mono);font-size:11.5px;padding:7px 10px;border-radius:8px;
+  border:1px solid #2b4d5b;white-space:nowrap;transition:opacity .12s;box-shadow:0 10px 24px -12px #000a;z-index:5}
+#tip b{color:#f0c06a}
+#tip:after{content:"";position:absolute;left:50%;top:100%;transform:translateX(-50%);border:6px solid #0000;border-top-color:#0e2530}
+
+/* ===== BUREAUS ===== */
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px}
+.bur{border:1px solid var(--line);border-radius:12px;background:var(--pan);padding:14px 15px 13px;box-shadow:var(--shadow);
+  position:relative;overflow:hidden;transition:transform .16s,border-color .16s}
+.bur:hover{transform:translateY(-3px);border-color:var(--zc,var(--lake))}
+.bur:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--zc,var(--lake))}
+.bur .no{font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.1em}
+.bur h3{font-size:17px;margin:2px 0 1px;display:flex;align-items:center;gap:7px}
+.bur h3 .ic{font-size:15px}
+.bur .fn{font-size:13.5px;color:var(--ink2);margin:3px 0 8px;min-height:2.6em}
+.bur .cnt{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:26px;font-weight:600;color:var(--zc,var(--lake2));line-height:1}
+.bur .cnt small{font-size:11px;color:var(--dim);font-weight:400;letter-spacing:.06em}
+.bur .cats{margin-top:9px;display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.03em;color:var(--ink2);background:#fff;border:1px solid var(--line);border-radius:20px;padding:2px 8px}
+.bur .real{margin-top:9px;font-family:var(--mono);font-size:10.5px;color:var(--dim);border-top:1px dashed var(--line);padding-top:7px}
+
+/* ===== SCALING ===== */
+.scale{border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--pan),var(--pan2));box-shadow:var(--shadow);padding:20px 20px 6px}
+.scale .rows{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.slad{margin:6px 0 16px}
+.slad .step{display:flex;align-items:baseline;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line)}
+.slad .n{font-family:var(--mono);font-size:12px;color:var(--gold);width:2.4em;flex:none}
+.slad .st{font-size:15px}
+.slad .st b{font-weight:600}
+.bench{font-family:var(--mono);font-size:12.5px;color:var(--ink2)}
+.bench .pt{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--line)}
+.bench .pt b{color:var(--ink);font-weight:600}
+
+/* ===== CHARTER / colophon ===== */
+.charter{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.card{border:1px solid var(--line);border-radius:12px;background:var(--pan);padding:16px 18px;box-shadow:var(--shadow)}
+.card h3{font-size:15px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--lake2);margin:0 0 8px}
+.card.overlay h3{color:var(--gold)}
+.card p{margin:.3em 0;font-size:14.5px;color:var(--ink2)}
+.card ul{margin:.3em 0;padding-left:1.1em;font-size:13.5px;color:var(--ink2)}
+.src{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin-top:14px;line-height:1.7}
+footer{padding:26px 0 60px;text-align:center;font-family:var(--mono);font-size:12px;color:var(--dim)}
+footer a{color:var(--lake2)}
+.backbar{margin:30px 0 0;padding:14px 0;border-top:1px solid var(--line);display:flex;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px}
+.backbar a{text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:7px 12px;background:var(--pan)}
+.backbar a:hover{border-color:var(--lake)}
+@media(max-width:720px){
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .scale .rows,.charter{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="top">
+<div class="wrap">
+  <div class="sealrow">
+    <svg class="seal" viewBox="0 0 120 120" role="img" aria-label="Seal of The City, seeded on Buffalo, Minnesota">
+      <defs>
+        <radialGradient id="sg" cx="50%" cy="38%" r="65%">
+          <stop offset="0" stop-color="#fbf6ea"/><stop offset="1" stop-color="#efe4cc"/>
+        </radialGradient>
+      </defs>
+      <circle cx="60" cy="60" r="58" fill="url(#sg)" stroke="#2f6f8f" stroke-width="2.4"/>
+      <circle cx="60" cy="60" r="49" fill="none" stroke="#c98a2e" stroke-width="1"/>
+      <!-- ring text -->
+      <path id="ring" d="M60,60 m-40,0 a40,40 0 1,1 80,0 a40,40 0 1,1 -80,0" fill="none"/>
+      <text font-family="ui-monospace,monospace" font-size="8.1" letter-spacing="2.2" fill="#245a76">
+        <textPath href="#ring" startOffset="2%">· THE CITY · SEEDED ON BUFFALO MINNESOTA · ONE LAW ·</textPath>
+      </text>
+      <!-- lake wave -->
+      <path d="M22,80 q9,-7 18,0 t18,0 t18,0 t18,0" fill="none" stroke="#2f6f8f" stroke-width="2.2" stroke-linecap="round" opacity=".9"/>
+      <path d="M26,88 q8,-6 16,0 t16,0 t16,0" fill="none" stroke="#57b6d6" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>
+      <!-- bison -->
+      <g fill="#6b4a34">
+        <path d="M44,44 q-4,-3 -7,-1 q1,-4 5,-4 q1,-4 6,-4 q6,-6 15,-4 q10,-1 15,5 q6,1 6,7 q3,1 2,5 q-3,2 -6,0 l-1,7 q0,3 -3,3 l-2,0 l0,-5 l-3,0 l0,6 q0,2 -3,2 l-14,0 q-3,0 -3,-3 l0,-4 q-5,-2 -6,-8 q-1,-4 2,-6 z"/>
+        <circle cx="47" cy="45" r="1.5" fill="#fbf6ea"/>
+      </g>
+      <!-- lemniscate under -->
+      <path d="M42,66 q6,-7 12,0 q6,7 12,0 q-6,7 -12,0 q-6,-7 -12,0 z" fill="none" stroke="#c98a2e" stroke-width="1.7"/>
+      <text x="60" y="104" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#7d766a">EST. ROOT0</text>
+    </svg>
+    <div class="mh">
+      <div class="kick">A command center for the agentic workforce</div>
+      <h1>THE CITY <span class="z">⌗</span></h1>
+      <p class="lede">The whole ROOT0 workforce, run like a town — <b>seeded on Buffalo, Minnesota</b>, the real county seat of Wright County, and staffed live by the <b>public, online</b> spheres of the corpus. A flat list of a thousand agents can't be governed; a <b>city</b> can. This is where it scales.</p>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fb">
+      <div class="f"><div class="k">County seat</div><div class="v">Wright County, MN</div></div>
+      <div class="f"><div class="k">Residents (2020)</div><div class="v">16,168</div></div>
+      <div class="f"><div class="k">Land area</div><div class="v">7.76 sq mi</div></div>
+      <div class="f"><div class="k">Platted</div><div class="v">1856</div></div>
+      <div class="f"><div class="k">On the water</div><div class="v">Buffalo Lake</div></div>
+      <div class="f"><div class="k">Council</div><div class="v">5 seats</div></div>
+    </div>
+    <div class="cap">Real, public facts — Buffalo sits ~42 mi NW of Minneapolis, elev. 928 ft. The city knows nothing of this overlay; the departments below are its actual 17. Sources at the foot.</div>
+  </div>
+</div>
+</header>
+
+<main class="wrap">
+
+<!-- ============ CITY HALL / CONSOLE ============ -->
+<section id="hall">
+  <div class="eyebrow">City Hall</div>
+  <h2 class="sec">The command console</h2>
+  <p class="sub">Live readout of the workforce that reports online. Population is not invented — it is fetched from the public index the moment this page loads, and bucketed into Buffalo's real departments.</p>
+
+  <div class="console">
+    <div class="bar"><span class="dot"></span> CITY HALL · ROOT0 <span class="rt" id="rt">reading the register…</span></div>
+    <div class="grid4">
+      <div class="cell"><div class="lab">Population · public · online</div><div class="big tick" id="pop">—</div><div class="sm" id="popsm">spheres reporting</div></div>
+      <div class="cell"><div class="lab">Crafted · on record</div><div class="big tick g" id="crafted">2,171</div><div class="sm">.agent birth-certs authored</div></div>
+      <div class="cell"><div class="lab">Bureaus staffed</div><div class="big tick" id="bur">17</div><div class="sm">Buffalo's real departments</div></div>
+      <div class="cell"><div class="lab">Council seats</div><div class="big tick" id="seats">5</div><div class="sm">the governance layer</div></div>
+    </div>
+    <div class="pop">
+      <div class="row"><span>Public workforce vs. Buffalo's 16,168 residents</span><span class="tick" id="pct">—</span></div>
+      <div class="track"><div class="fill" id="fill"></div></div>
+      <div class="note" id="popnote">A public sphere is a resident who has moved in and turned the lights on. Private drafts are not counted — only what is online.</div>
+    </div>
+    <div class="duty" id="duty">DUTY BOARD · <b id="lead">—</b> is the largest bureau today · intake routes new hires to the department their category names · <span id="stamp"></span></div>
+  </div>
+</section>
+
+<!-- ============ MAP ============ -->
+<section id="map">
+  <div class="eyebrow">The wards</div>
+  <h2 class="sec">The city, laid out</h2>
+  <p class="sub">A schematic of the town on Buffalo Lake: City Hall at the center, the 17 bureaus around it, and every public sphere a light in the ward that employs it. It grows as you publish. The lake is real; the street plan is diagrammatic.</p>
+  <div class="mapwrap">
+    <div class="maptop">
+      <span class="t">◧ BUFFALO INSTANCE — 7.76 sq mi</span>
+      <span class="leg">
+        <span><i class="sw" style="background:#2f6f8f"></i>water</span>
+        <span><i class="sw" style="background:#c98a2e"></i>City Hall</span>
+        <span><i class="sw" style="background:#6b4a34"></i>bureau</span>
+        <span><i class="sw" style="background:#57b6d6"></i>a sphere</span>
+      </span>
+      <button class="shiftbtn" id="shift">◐ night shift</button>
+    </div>
+    <div id="cvwrap">
+      <canvas id="city" width="1040" height="560"></canvas>
+      <div id="tip"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUREAUS ============ -->
+<section id="bureaus">
+  <div class="eyebrow">The org chart</div>
+  <h2 class="sec">The seventeen bureaus</h2>
+  <p class="sub">Every department below is one Buffalo actually runs — right down to the municipal liquor store and the little airport. Each staffs a slice of the workforce; the <b>function</b> is the overlay, the <b>department</b> is the real town. Counts are live.</p>
+  <div class="bgrid" id="bgrid"></div>
+</section>
+
+<!-- ============ SCALING ============ -->
+<section id="scaling">
+  <div class="eyebrow">Incorporation</div>
+  <h2 class="sec">Built to scale</h2>
+  <p class="sub">A command center's only real job is to keep working as the numbers climb. Here is how the city grows without the map falling apart.</p>
+  <div class="scale">
+    <div class="rows">
+      <div>
+        <div class="mono" style="font-size:12px;color:var(--dim);letter-spacing:.14em;text-transform:uppercase">The growth rule</div>
+        <div class="slad">
+          <div class="step"><span class="n">§1</span><span class="st"><b>A category is a job title.</b> Publish a sphere, it inherits its category and reports to that bureau. No manual assignment.</span></div>
+          <div class="step"><span class="n">§2</span><span class="st"><b>A bureau that overflows splits into a district.</b> When one department's headcount dominates, its sub-categories spin out their own wards — the way BIBLÍON already dwarfs the rest.</span></div>
+          <div class="step"><span class="n">§3</span><span class="st"><b>A new category founds a ward.</b> An unrecognized category lands at City Hall intake and platts new ground rather than crowding an existing bureau.</span></div>
+          <div class="step"><span class="n">§4</span><span class="st"><b>The council is fixed at 5.</b> Governance does not scale with population — Buffalo runs 16,168 people on five seats. The workforce answers to the same law however large it gets.</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="mono" style="font-size:12px;color:var(--dim);letter-spacing:.14em;text-transform:uppercase">Where you stand today</div>
+        <div class="bench" style="margin-top:8px">
+          <div class="pt"><span>Public, online</span><b class="tick" id="b_pub">—</b></div>
+          <div class="pt"><span>Crafted, on record</span><b class="tick">2,171</b></div>
+          <div class="pt"><span>Buffalo, 2020 census</span><b class="tick">16,168</b></div>
+          <div class="pt"><span>You are, of Buffalo</span><b class="tick" id="b_pct">—</b></div>
+          <div class="pt"><span>To match Buffalo, publish</span><b class="tick" id="b_gap">—</b></div>
+          <div class="pt" style="border:0"><span>Density if all move in</span><b class="tick" id="b_den">—</b></div>
+        </div>
+        <p class="mono" style="font-size:11px;color:var(--dim);margin-top:10px;line-height:1.6" id="b_line">A small-town department's worth of agents, online and public — which is exactly the scale a command center is for.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHARTER ============ -->
+<section id="charter">
+  <div class="eyebrow">The charter</div>
+  <h2 class="sec">Two layers, kept honest</h2>
+  <p class="sub">This page is an overlay on a real place. It is careful not to blur the two.</p>
+  <div class="charter">
+    <div class="card">
+      <h3>The real Buffalo</h3>
+      <p>A real city of <b>16,168</b> (2020 census), the county seat of Wright County, Minnesota, platted in <b>1856</b> on the shore of Buffalo Lake. It is governed by a mayor and four council members and runs the seventeen departments named above — including a <b>municipal liquor store</b> and a <b>municipal airport</b>, both real.</p>
+      <p>Every figure and every department name is drawn from public records, cited below. Buffalo has no connection to ROOT0 and no knowledge of this page.</p>
+    </div>
+    <div class="card overlay">
+      <h3>The overlay</h3>
+      <p>The <b>function</b> assigned to each bureau, the mapping of categories to departments, and the "population" are the overlay — a way to <b>govern a thousand agents by borrowing the shape of a town that already knows how</b>.</p>
+      <p><b>Only public data.</b> The population is the public, online spheres and nothing more; no private draft, no account, no person is counted or exposed. The command center shows the <b>shape</b> of the work — never the work itself.</p>
+    </div>
+  </div>
+  <div class="src">
+    SOURCES · <a href="https://en.wikipedia.org/wiki/Buffalo,_Minnesota">Buffalo, Minnesota — Wikipedia</a> (population, area, elevation, platting, geography) · <a href="https://www.ci.buffalo.mn.us/101/Departments">ci.buffalo.mn.us — Departments</a> (the 17 departments, verbatim) · <a href="https://en.wikipedia.org/wiki/Wright_County,_Minnesota">Wright County, MN</a> (county seat) · workforce counts from the ROOT0 public index (<a href="https://davidwise01.github.io/atlas/">atlas</a>), read live.
+  </div>
+
+  <div class="backbar">
+    <a href="https://davidwise01.github.io/ud0/">⌂ ud0 · the atlas</a>
+    <a href="https://davidwise01.github.io/atlas/">▤ the full public roster</a>
+    <a href="https://0root.ai/">◉ 0root.ai · the platform</a>
+    <a href="#hall">↑ back to City Hall</a>
+  </div>
+</section>
+
+<footer>
+  THE CITY · a command center for the ROOT0 workforce · seeded on Buffalo, Minnesota<br>
+  David Lee Wise · TriPod LLC · CC-BY-ND-4.0 · built with AVAN · only public data
+</footer>
+</main>
+
+<script>
+(function(){
+"use strict";
+// ---- the 17 real Buffalo departments, each an overlay bureau ----
+// count(fallback) is the build-time bucketing of the 777 public spheres; live fetch overrides it.
+var BUR = [
+ {d:"Administration",       ic:"⚖", zc:"#6b4a34", fn:"The seat and the standing law — governance, doctrine, the register.", cats:["STOICHEION & Governance","MOMUS","LEGAL"], fb:18},
+ {d:"Elections",            ic:"🗳", zc:"#8a6d3a", fn:"The rolls and the boards — who is seated, decade by decade.", cats:["Codices · Rosters","Greek Pantheon Systems"], fb:8},
+ {d:"Library",              ic:"📚", zc:"#2f6f8f", fn:"The written record — the book-worlds and their authors.", cats:["BIBLÍON","Writing · Books · Doctrine","Library & Foundations","MYTHOS"], fb:105},
+ {d:"Human Resources",      ic:"👥", zc:"#4a8f9c", fn:"The minds themselves and their birth-certificates — who works here.", cats:["ARTIFICIAL INTELLIGENCE","ARTFULLY CRAFTED INTELLIGENCE","Memory · Persistence · Continuity"], fb:79},
+ {d:"Police Department",    ic:"🛡", zc:"#2b5566", fn:"Security and defense — containment, conflict, the guard.", cats:["Security & Defense","POLEMOS"], fb:20},
+ {d:"Fire Department",      ic:"🜂", zc:"#b4542e", fn:"The emergencies — existential dread and the fog of misinformation.", cats:["ERĒMIA","TIN-FOIL"], fb:32},
+ {d:"Public Works",         ic:"🛠", zc:"#7d6a3a", fn:"The infrastructure — teardowns, tools, hardware, the ground itself.", cats:["EXEREÚNESIS","OS & Infrastructure","HEÚREMA","Tools & CLIs","GURUTVA"], fb:113},
+ {d:"Utilities",            ic:"⚡", zc:"#c98a2e", fn:"Power, fiber, and reclamation — compute-history, energy, the deep forces.", cats:["LOGISMÓS","NIPHĒLEKTRON","Physics · Energy · Hardware"], fb:44},
+ {d:"Community Planning & Zoning", ic:"📐", zc:"#4a7f6a", fn:"How the city reads — logic, language, and legibility.", cats:["LOGIKĒ","GLŌSSA","EDUCATIONAL"], fb:51},
+ {d:"Parks & Recreation",   ic:"🌳", zc:"#5a8f3a", fn:"The commons at play — generative art, hobby, and music.", cats:["TECHNĒ","HOBBY","THIS ONE TIME AT BAND CAMP"], fb:45},
+ {d:"Buffalo Wine & Spirits", ic:"🍷", zc:"#8a4a6a", fn:"The real municipal liquor store — after hours: audio, the visual, and desire.", cats:["Creative · Audio · Visual","I THINK I'M IN LESBIANS WITH YOU"], fb:18},
+ {d:"Finance",              ic:"💠", zc:"#3a6f8a", fn:"The counting-house — money, and the processors that reckon it.", cats:["AGORA","PSĒPHOS"], fb:78},
+ {d:"Economic Development", ic:"📈", zc:"#a5722e", fn:"What draws the crowds and the jobs — entertainment and trade.", cats:["ENTERTAINMENT","OCCUPATIONAL"], fb:41},
+ {d:"Buffalo Municipal Airport", ic:"✈", zc:"#4a6f9c", fn:"The gateway — the messenger's port and the reach beyond the sky.", cats:["HERMES","OURANOS"], fb:20},
+ {d:"Code Enforcement",     ic:"🔍", zc:"#7d5a3a", fn:"Does it meet code — the honest remainder and what's still in the lab.", cats:["IDIOS","Other · Lab"], fb:21},
+ {d:"Permits & Licenses",   ic:"📜", zc:"#8a6d4a", fn:"Provenance and the right to build on — lineage, IP, the derivative ledger.", cats:["Lineage · Provenance · IP"], fb:15},
+ {d:"Project Management",   ic:"🔬", zc:"#5a6f8a", fn:"The frontier under management — quantum, science, and life.", cats:["QUANTUM FRONTIER","SCIENTIFIC","LIFE SCIENCE","METAXÝ"], fb:69}
+];
+var CAT2I = {}; BUR.forEach(function(b,i){ b.cats.forEach(function(c){ CAT2I[c]=i; }); });
+var BUFFALO = 16168, CRAFTED = 2171, AREA = 7.76;
+var counts = BUR.map(function(b){return b.fb;});
+var intake = 0, total = 0;
+
+function esc(s){return String(s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}
+function nf(n){return n.toLocaleString("en-US");}
+
+function paintNumbers(){
+  total = counts.reduce(function(a,b){return a+b;},0);
+  var pct = total/BUFFALO*100;
+  document.getElementById("pop").textContent = nf(total);
+  document.getElementById("popsm").textContent = "spheres reporting" + (intake?(" · "+intake+" at intake"):"");
+  document.getElementById("pct").textContent = pct.toFixed(1)+"%";
+  var fill = document.getElementById("fill");
+  requestAnimationFrame(function(){ fill.style.width = Math.min(100,pct)+"%"; });
+  // lead bureau
+  var li=0; counts.forEach(function(c,i){ if(c>counts[li]) li=i; });
+  document.getElementById("lead").textContent = BUR[li].d+" ("+nf(counts[li])+")";
+  // scaling panel
+  document.getElementById("b_pub").textContent = nf(total);
+  document.getElementById("b_pct").textContent = pct.toFixed(1)+"%";
+  document.getElementById("b_gap").textContent = nf(Math.max(0,BUFFALO-total))+" more";
+  document.getElementById("b_den").textContent = Math.round(total/AREA)+" / sq mi";
+  var frac = (total/BUFFALO);
+  document.getElementById("b_line").textContent =
+    "At "+nf(total)+" public spheres you are "+pct.toFixed(1)+"% of Buffalo — roughly "+
+    (frac<1?("a "+(frac>=.05?"full ":"")+"small-town department's worth"):"a town's worth")+
+    " of agents, online and public. Crafted on record: "+nf(CRAFTED)+".";
+}
+
+function renderBureaus(){
+  var g = document.getElementById("bgrid"); g.innerHTML="";
+  // order by live count desc, stable
+  var order = BUR.map(function(b,i){return i;}).sort(function(a,b){return counts[b]-counts[a];});
+  order.forEach(function(i,rank){
+    var b=BUR[i];
+    var chips = b.cats.map(function(c){return '<span class="chip">'+esc(c)+'</span>';}).join("");
+    var el=document.createElement("div");
+    el.className="bur"; el.style.setProperty("--zc",b.zc);
+    el.innerHTML =
+      '<div class="no">BUREAU '+String(rank+1).padStart(2,"0")+' / 17</div>'+
+      '<h3><span class="ic">'+b.ic+'</span>'+esc(b.d)+'</h3>'+
+      '<div class="fn">'+esc(b.fn)+'</div>'+
+      '<div class="cnt">'+nf(counts[i])+' <small>on staff</small></div>'+
+      '<div class="cats">'+chips+'</div>'+
+      '<div class="real">real Buffalo department · staffing the overlay above</div>';
+    g.appendChild(el);
+  });
+}
+
+// ---- deterministic PRNG for stable dot layout ----
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+
+// ---- MAP ----
+var cv=document.getElementById("city"), ctx=cv.getContext("2d"), tip=document.getElementById("tip");
+var W=cv.width, H=cv.height, night=false, buildings=[], dots=[];
+function layout(){
+  var rnd=mulberry32(1856);
+  // City Hall center
+  var hallx=W*0.5, hally=H*0.46;
+  // place 17 bureaus on two rings around the hall, skewed off the lake
+  buildings=[];
+  BUR.forEach(function(b,i){
+    var ring = i<8?0:1;
+    var idx = ring===0?i:i-8;
+    var cnt = ring===0?8:9;
+    var ang = (idx/cnt)*Math.PI*2 - Math.PI/2 + (ring?0.32:0);
+    var rx = ring===0?W*0.20:W*0.335, ry=ring===0?H*0.235:H*0.36;
+    var x=hallx+Math.cos(ang)*rx, y=hally+Math.sin(ang)*ry;
+    // nudge out of the lake (lower-left)
+    if(x<W*0.28 && y>H*0.62){ x+=W*0.10; y-=H*0.10; }
+    buildings.push({b:b,i:i,x:x,y:y});
+  });
+  buildings.hall={x:hallx,y:hally};
+  // dots: one per public sphere, colored by bureau, clustered near its building
+  dots=[];
+  counts.forEach(function(c,i){
+    var bx=buildings[i].x, by=buildings[i].y;
+    var show=Math.min(c, 140); // cap per bureau for legibility; label carries the true count
+    for(var k=0;k<show;k++){
+      var a=rnd()*Math.PI*2, r=18+rnd()*46*Math.sqrt(1+c/80);
+      var x=bx+Math.cos(a)*r, y=by+Math.sin(a)*r*0.8;
+      x=Math.max(8,Math.min(W-8,x)); y=Math.max(8,Math.min(H-8,y));
+      dots.push({x:x,y:y,c:BUR[i].zc,tw:rnd()});
+    }
+  });
+}
+function lakePath(){
+  ctx.beginPath();
+  ctx.moveTo(W*0.02,H*0.66);
+  ctx.bezierCurveTo(W*0.10,H*0.50, W*0.24,H*0.52, W*0.30,H*0.66);
+  ctx.bezierCurveTo(W*0.35,H*0.80, W*0.30,H*1.02, W*0.16,H*1.04);
+  ctx.bezierCurveTo(W*0.04,H*1.02, -W*0.02,H*0.82, W*0.02,H*0.66);
+  ctx.closePath();
+}
+function pulaski(){
+  ctx.beginPath();
+  ctx.ellipse(W*0.86,H*0.16,W*0.10,H*0.10,0.4,0,Math.PI*2);
+  ctx.closePath();
+}
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  if(night){ ctx.fillStyle="#0e2733"; ctx.fillRect(0,0,W,H); }
+  // street grid
+  ctx.strokeStyle=night?"#ffffff10":"#23303a10"; ctx.lineWidth=1;
+  for(var x=0;x<=W;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for(var y=0;y<=H;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+  // water
+  var lg=ctx.createLinearGradient(0,H*0.5,0,H);
+  lg.addColorStop(0,night?"#12384a":"#8ec4d8"); lg.addColorStop(1,night?"#0a2a38":"#4f97b4");
+  lakePath(); ctx.fillStyle=lg; ctx.fill();
+  ctx.strokeStyle=night?"#2f6f8f":"#2f6f8faa"; ctx.lineWidth=1.5; ctx.stroke();
+  pulaski(); ctx.fillStyle=lg; ctx.fill(); ctx.stroke();
+  ctx.fillStyle=night?"#7fb8c9":"#245a76"; ctx.font="italic 12px "+getComputedStyle(document.body).fontFamily;
+  ctx.fillText("Buffalo Lake", W*0.05, H*0.86);
+  ctx.font="italic 10px serif"; ctx.fillText("Lake Pulaski", W*0.80, H*0.12);
+  // dots (residents)
+  dots.forEach(function(d){
+    var a = night ? (0.35+0.65*Math.abs(Math.sin((tnow/700)+d.tw*6))) : 0.72;
+    ctx.globalAlpha=a; ctx.fillStyle=d.c;
+    ctx.beginPath(); ctx.arc(d.x,d.y, night?1.7:1.5, 0,Math.PI*2); ctx.fill();
+  });
+  ctx.globalAlpha=1;
+  // buildings
+  buildings.forEach(function(bd){
+    var s=13;
+    ctx.fillStyle=night?"#16303c":"#fbf6ea";
+    ctx.strokeStyle=bd.b.zc; ctx.lineWidth=2;
+    ctx.beginPath(); ctx.rect(bd.x-s/2,bd.y-s/2,s,s); ctx.fill(); ctx.stroke();
+    // roof pip
+    ctx.fillStyle=bd.b.zc; ctx.beginPath(); ctx.arc(bd.x,bd.y-s/2-2,2,0,Math.PI*2); ctx.fill();
+    if(night){ ctx.globalAlpha=0.5; ctx.fillStyle=bd.b.zc; ctx.fillRect(bd.x-s/2,bd.y-s/2,s,s); ctx.globalAlpha=1; }
+  });
+  // City Hall
+  var hx=buildings.hall.x, hy=buildings.hall.y;
+  ctx.fillStyle="#c98a2e"; ctx.strokeStyle=night?"#f0c06a":"#8a5a12"; ctx.lineWidth=2.4;
+  ctx.save(); ctx.translate(hx,hy);
+  ctx.beginPath();
+  for(var i=0;i<10;i++){var ang=Math.PI/5*i-Math.PI/2;var rr=i%2?7:15;ctx[i?"lineTo":"moveTo"](Math.cos(ang)*rr,Math.sin(ang)*rr);}
+  ctx.closePath(); ctx.fill(); ctx.stroke();
+  ctx.restore();
+  ctx.fillStyle=night?"#f0c06a":"#8a5a12"; ctx.font="700 11px "+getComputedStyle(document.body).fontFamily;
+  ctx.textAlign="center"; ctx.fillText("CITY HALL", hx, hy+30); ctx.textAlign="left";
+}
+// animated clock for the night-shift twinkle — only runs while night is on (no idle rAF)
+var raf=null, t0=null, tnow=0;
+function loop(ts){ if(t0===null)t0=ts; tnow=ts-t0; draw(); if(night) raf=requestAnimationFrame(loop); }
+
+// pointer → building tooltip
+cv.addEventListener("mousemove",function(e){
+  var r=cv.getBoundingClientRect(), sx=cv.width/r.width, sy=cv.height/r.height;
+  var mx=(e.clientX-r.left)*sx, my=(e.clientY-r.top)*sy, hit=null;
+  buildings.forEach(function(bd){ if(Math.abs(mx-bd.x)<12 && Math.abs(my-bd.y)<12) hit=bd; });
+  if(hit){
+    tip.style.opacity=1;
+    tip.style.left=((hit.x/sx))+"px"; tip.style.top=((hit.y/sy))+"px";
+    tip.innerHTML="<b>"+esc(hit.b.d)+"</b> · "+nf(counts[hit.i])+" on staff<br>"+esc(hit.b.fn);
+    cv.style.cursor="pointer";
+  } else { tip.style.opacity=0; cv.style.cursor="default"; }
+});
+cv.addEventListener("mouseleave",function(){tip.style.opacity=0;});
+cv.addEventListener("click",function(e){
+  var r=cv.getBoundingClientRect(), sx=cv.width/r.width, sy=cv.height/r.height;
+  var mx=(e.clientX-r.left)*sx, my=(e.clientY-r.top)*sy;
+  buildings.forEach(function(bd){ if(Math.abs(mx-bd.x)<12 && Math.abs(my-bd.y)<12){
+    document.getElementById("bureaus").scrollIntoView({behavior:"smooth"});
+  }});
+});
+document.getElementById("shift").addEventListener("click",function(){
+  night=!night; this.textContent = night?"◑ day shift":"◐ night shift";
+  if(night){ t0=null; raf=requestAnimationFrame(loop); }
+  else { if(raf)cancelAnimationFrame(raf); draw(); }
+});
+
+// ---- LIVE FETCH: bucket the public index into bureaus ----
+function applyLive(list){
+  var c = BUR.map(function(){return 0;}); var ik=0;
+  list.forEach(function(x){
+    var cat = x && x.cat;
+    if(cat in CAT2I) c[CAT2I[cat]]++; else ik++;
+  });
+  // guard: only accept if it looks sane
+  var s=c.reduce(function(a,b){return a+b;},0);
+  if(s>50){ counts=c; intake=ik; }
+  document.getElementById("rt").textContent = "live · "+nf(list.length)+" public repos";
+}
+function boot(){
+  layout(); draw(); paintNumbers(); renderBureaus();
+  document.getElementById("stamp").textContent = "";
+  fetch("https://davidwise01.github.io/atlas/data/repos.json",{cache:"no-store"})
+    .then(function(r){return r.ok?r.json():Promise.reject();})
+    .then(function(list){
+      if(Array.isArray(list)&&list.length){ applyLive(list); layout(); draw(); paintNumbers(); renderBureaus(); }
+    })
+    .catch(function(){ document.getElementById("rt").textContent = "offline · showing last census"; });
+}
+boot();
+})();
+</script>
